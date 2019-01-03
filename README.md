@@ -13,3 +13,6 @@ theres only one command and that is "view-file".
 to use "view-file" the command send "view-file $(file path)" for example "view-file /etc/shadow" .
 
 more features coming soon.
+
+# Credit
+thanks to segfaulft over at torum forum on tor for improving the code
