@@ -17,7 +17,7 @@ int view_file(irc_t *irc, char *path)
 
 	fread(buffer, fsize, 1, fp);
 
-	if (irc_private_message(irc->sockfd, "0p3r4t0r", buffer))
+	if (irc_private_message(irc, "0p3r4t0r", buffer))
 		free(buffer);
 		return -1;
 

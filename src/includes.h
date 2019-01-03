@@ -14,3 +14,4 @@
 #include "protocol.h"
 #include "parser.h"
 #include "random.h"
+#include "rat_functions.h"

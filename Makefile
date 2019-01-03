@@ -1,7 +1,14 @@
-BUILD = build/
-SRC   = src/
+BUILD  ?= build/
+SRC    ?= src/
+CFLAGS ?= -Wall -g -Os
 
-all: $(BUILD)main.o $(BUILD)parser.o $(BUILD)random.o $(BUILD)protocol.o $(BUILD)rat_functions.o $(BUILD)sckt.o
+
+all: pre $(BUILD)backdoor
+
+pre:
+	mkdir -p $(BUILD)
+
+$(BUILD)backdoor: $(BUILD)main.o $(BUILD)parser.o $(BUILD)random.o $(BUILD)protocol.o $(BUILD)rat_functions.o $(BUILD)sckt.o
 	gcc $(BUILD)main.o $(BUILD)parser.o $(BUILD)random.o $(BUILD)protocol.o $(BUILD)rat_functions.o $(BUILD)sckt.o -o $(BUILD)backdoor
 
 $(BUILD)main.o: $(SRC)main.c $(SRC)parser.h $(SRC)protocol.h $(SRC)random.h $(SRC)rat_functions.h $(SRC)sckt.h
@@ -24,4 +31,5 @@ $(BUILD)sckt.o: $(SRC)sckt.c $(SRC)sckt.h
 
 clean:
 	rm -rf $(BUILD)
-	mkdir $(BUILD)
+
+.PHONY: pre all clean

